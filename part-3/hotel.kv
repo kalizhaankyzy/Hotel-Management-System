@@ -1,0 +1,1953 @@
+<MyLayout>:
+    name: "main-page"
+    ScrollView:
+        FloatLayout:
+            size: root.width, root.height*2.3
+            size_hint_y: None
+            canvas:
+                Color:
+                    rgba: (0, 0, 0, 1)
+            Button:
+                font_size: 15
+                color: (144/255, 66/255, 11/255, 1)
+                background_color: (1, 1, 1, 0)
+                size_hint: 0.1, 0.05
+                pos_hint: {"x": 0.05, "top": 1}
+                text: "Booking"
+                on_press: self.color = (77/255, 33/255, 2/255, 1)
+                on_release:
+                    self.color = (144/255, 66/255, 11/255, 1)
+                    root.set_payment_type()
+                    app.root.current = "booking-guest"
+                    root.manager.transition.direction = 'left'
+
+            Button:
+                font_size: 15
+                color: (144/255, 66/255, 11/255, 1)
+                background_color: (1, 1, 1, 0)
+                size_hint: 0.1, 0.05
+                pos_hint: {"x": 0.85, "top": 1}
+                text: "Log In"
+                on_press: self.color = (77/255, 33/255, 2/255, 1)
+                on_release:
+                    self.color = (144/255, 66/255, 11/255, 1)
+                    app.root.current = "login"
+                    root.manager.transition.direction = 'left'
+
+            Label:
+                font_size: 32
+                color: (144/255, 66/255, 11/255, 1)
+                size_hint: None, None
+                size: self.texture_size
+                pos_hint: {"center_x": 0.5, "top": 0.99}
+                text: "HOTEL"
+
+            Image:
+                source: 'header-bg.jpeg'
+                pos_hint: {'left': 1, 'top': 0.95}
+                size_hint: None, None
+                size: root.width, 600
+                allow_stretch: True
+                keep_ratio: False
+
+            Label:
+                font_size: 32
+                color: (1, 1, 1, 1)
+                size_hint: None, None
+                size: self.texture_size
+                pos_hint: {"center_x": 0.5, "top": 0.81}
+                text: "MANAGE YOUR BOOKING ANYTIME ANYWHERE"
+            
+            Button:
+                font_size: 28
+                color: (144/255, 66/255, 11/255, 1)
+                background_color: (250, 182, 37, 1)
+                size_hint: 0.15, 0.03
+                pos_hint: {"center_x": 0.5, "top": 0.75}
+                text: "Search..."
+                on_press: self.color = (77/255, 33/255, 2/255, 1)
+                on_release:
+                    self.color = (144/255, 66/255, 11/255, 1)
+                    root.set_payment_type()
+                    app.root.current = "booking-guest"
+                    root.manager.transition.direction = 'left'
+            
+            Label:
+                font_size: 32
+                color: (144/255, 66/255, 11/255, 1)
+                size_hint: None, None
+                size: self.texture_size
+                pos_hint: {"center_x": 0.5, "top": 0.56}
+                text: "Comfortable Rooms"
+                
+            GridLayout:
+                pos_hint: {"x": 0, "top": 0.56}
+                cols: 3
+                size_hint: (None, None)
+                size: root.width, 350
+                
+                GridLayout:
+                    cols: 1
+                    BoxLayout:
+                        orientation: 'vertical'
+                        padding: 10
+                        Image:
+                            source: 'standardroom.png'
+                            size_hint: None, None
+                            size: root.width/3, 250
+                            pos_hint: {"center_x": 0.5}
+                            allow_stretch: True
+                        
+                        Button:
+                            text: "Standard Room"
+                            color: 1, 1, 1, 1
+                            background_normal: ''
+                            background_color: (186/255, 135/255, 81/255, 1)
+                            size_hint: None, None
+                            size:root.width/5, 30
+                            pos_hint: {"center_x": 0.5}
+                        # on_press: root.setRoomType("st_room")
+                            on_release:
+                                app.root.current = "standard-room"
+                                root.manager.transition.direction = 'left'
+                GridLayout:
+                    cols: 1
+                    BoxLayout:
+                        orientation: 'vertical'
+                        padding: 10
+                        Image:
+                            source: 'juniorsuite.png'
+                            size_hint: None, None
+                            size: root.width/3, 250
+                            pos_hint: {"center_x": 0.5}
+                            allow_stretch: True
+                        
+                        Button:
+                            text: "Junior Suite"
+                            color: 1, 1, 1, 1
+                            background_normal: ''
+                            background_color: (186/255, 135/255, 81/255, 1)
+                            size_hint: None, None
+                            size: root.width/5, 30
+                            pos_hint: {"center_x": 0.5}
+                            on_release:
+                                app.root.current = "junior-suite"
+                                root.manager.transition.direction = 'left'
+                GridLayout:
+                    cols: 1
+                    BoxLayout:
+                        orientation: 'vertical'
+                        padding: 10
+                        Image:
+                            source: 'kingsuite.png'
+                            size_hint: None, None
+                            size: root.width/3, 250
+                            pos_hint: {"center_x": 0.5}
+                            allow_stretch: True
+                        
+                        Button:
+                            text: "King Suite"
+                            color: 1, 1, 1, 1
+                            background_normal: ''
+                            background_color: (186/255, 135/255, 81/255, 1)
+                            size_hint: None, None
+                            size:root.width/5, 30
+                            pos_hint: {"center_x": 0.5}
+                            # on_press: root.show(self)
+                            on_release:
+                                app.root.current = "king-suite"
+                                root.manager.transition.direction = 'left'
+            GridLayout:
+                pos_hint: {"x": 0, "top": 0.32}
+                cols: 2
+                size_hint: (None, None)
+                size: root.width, 350
+                GridLayout:
+                    cols: 1
+                    BoxLayout:
+                        orientation: 'vertical'
+                        padding: 10
+                        Image:
+                            source: 'superiorsuite.png'
+                            size_hint: None, None
+                            size: root.width/2.3, 300
+                            pos_hint: {"center_x": 0.5}
+                            allow_stretch: True
+                        
+                        Button:
+                            text: "Superior Suite"
+                            color: 1, 1, 1, 1
+                            background_normal: ''
+                            background_color: (186/255, 135/255, 81/255, 1)
+                            size_hint: None, None
+                            size: root.width/4, 30
+                            pos_hint: {"center_x": 0.5}
+                            # on_press: root.show(self)
+                            on_release:
+                                app.root.current = "superior-suite"
+                                root.manager.transition.direction = 'left'
+                GridLayout:
+                    cols: 1   
+                    BoxLayout:
+                        orientation: 'vertical'
+                        padding: 10
+                        Image:
+                            source: 'queensuite.png'
+                            size_hint: None, None
+                            size: root.width/2.3, 300
+                            pos_hint: {"center_x": 0.5}
+                            allow_stretch: True
+                        
+                        Button:
+                            text: "Queen Suite"
+                            color: 1, 1, 1, 1
+                            background_normal: ''
+                            background_color: (186/255, 135/255, 81/255, 1)
+                            size_hint: None, None
+                            size:root.width/4, 30
+                            pos_hint: {"center_x": 0.5}
+                            # on_press: root.show(self)
+                            on_release:
+                                app.root.current = "queen-suite"
+                                root.manager.transition.direction = 'left'
+            Label:
+                canvas.before:
+                    Color:
+                        rgba: (144/255, 66/255, 11/255, 1)
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                size_hint_y: None
+                pos_hint: {"x": 0, "top": 0.07}
+                height: 0.5
+
+            Label:
+                font_size: 16
+                color: (144/255, 66/255, 11/255, 1)
+                size_hint: None, None
+                size: self.texture_size
+                pos_hint: {"x": 0.05, "top": 0.065}
+                text: "Contacts:\n\nTole bi 59, Almaty, Kazakhstan\nreservation@hotel.kz"
+<LogInWindow>:
+    name: "login"
+
+    login: login
+    password: password
+    login_btn: login_btn
+
+    FloatLayout:
+        size: root.width, root.height
+
+        Image:
+            source: 'kazakhstan_hotel.jpg'
+            pos_hint: {'x': 0, 'y': 0}
+            size_hint: None, None
+            size: root.width, root.height
+            allow_stretch: True
+            keep_ratio: False
+
+        Image:
+            source: 'white.jpg'
+            opacity: 0.5
+            pos_hint: {'x': 300/1200, 'center_y': 0.5}
+            size_hint: 600/1200, 600/800
+            allow_stretch: True
+            keep_ratio: False
+
+    FloatLayout:
+        size_hint: 600/1200, 800/800
+        pos_hint: {"x": 300/1200}
+
+        canvas:
+            Color:
+                rgba: (144/255, 66/255, 11/255, 1)
+            # Line:
+            #     width: 1.2
+            #     points: (300, 0, 300, 800, 900, 800, 900, 0)
+
+
+        Label:
+            text:"Login: "
+            color: (144/255, 66/255, 11/255, 1)
+            font_size: 28
+            bold: True
+            pos_hint: {"x":0.1, "top":0.8}
+            size_hint: 0.35, 0.15
+
+        TextInput:
+            id: login
+            font_size: 18
+            multiline: False
+            pos_hint: {"x": 0.45 , "top":0.75}
+            size_hint: 0.45, 0.05
+
+        Label:
+            text:"Password: "
+            color: (144/255, 66/255, 11/255, 1)
+            font_size: 28
+            bold: True
+            pos_hint: {"x":0.1, "top":0.7}
+            size_hint: 0.35, 0.15
+
+        TextInput:
+            id: password
+            font_size: 18
+            multiline: False
+            password: True
+            pos_hint: {"x": 0.45, "top":0.65}
+            size_hint: 0.45, 0.05
+
+        Button:
+            id: back_btn4
+            background_color: (186/255, 135/255, 81/255, 1)
+            background_normal: ''
+            pos_hint:{"center_x": 0.5,"y":0.35}
+            size_hint: 0.5, 0.08
+            font_size: 24
+            text: "Back"
+            on_release:
+                color = (186/255, 135/255, 81/255, 1)
+                login.text = ''
+                password.text = ''
+                app.root.current = "main-page"
+                root.manager.transition.direction = 'right'
+
+        Button:
+            id: login_btn
+            color: (1, 1, 1, 1)
+            background_color: (186/255, 135/255, 81/255, 1)
+            background_normal: ''
+            pos_hint:{"center_x":0.5,"y":0.25}
+            size_hint: 600/1200, 0.08
+            font_size: 24
+            text: "Login"
+            on_release:
+                root.emp_operation()
+                root.manager.transition.direction = "up"
+
+<EmpFirstWindow>:
+    name: "emp_first"
+
+    FloatLayout:
+        size: root.width, root.height
+
+        canvas:
+            Color:
+                rgba: (144/255, 66/255, 11/255, 1)
+            Line:
+                width: 1
+                points: (0.825*1200, 0.96*700, 0.825*1200, 0.89*700)
+            Color:
+                rgba: (144/255, 66/255, 11/255, 1)
+            Line:
+                width: 1.15
+                points: (0.025*1200, 0.95*700, 0.025*1200, 0.795*700, 0.375*1200, 0.795*700, 0.375*1200, 0.95*700, 0.025*1200, 0.95*700)
+
+        Label:
+            id: curr_id
+            font_size: 17
+            bold: True
+            color: (144/255, 66/255, 11/255, 1)
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint: {"x": 0.05, "top": 0.93}
+            text: "Id: "
+        Label:
+            id: curr_name
+            font_size: 17
+            bold: True
+            color: (144/255, 66/255, 11/255, 1)
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint: {"x": 0.05, "top": 0.9}
+            text: "Name: "
+        Label:
+            id: curr_surname
+            font_size: 17
+            bold: True
+            color: (144/255, 66/255, 11/255, 1)
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint: {"x": 0.05, "top": 0.87}
+            text: "Surname: "
+        Label:
+            id: curr_pos
+            font_size: 17
+            bold: True
+            color: (144/255, 66/255, 11/255, 1)
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint: {"x": 0.05, "top": 0.84}
+            text: "Position: "
+
+
+        Button:
+            font_size: 15
+            color: (144/255, 66/255, 11/255, 1)
+            background_color: (1, 1, 1, 0)
+            size_hint: 0.1, 0.05
+            pos_hint: {"x": 0.7, "top": 0.95}
+            text: "Work Time"
+            on_press: self.color = (77/255, 33/255, 2/255, 1)
+            on_release:
+                self.color = (144/255, 66/255, 11/255, 1)
+                root.manager.transition.direction = "down"
+                root.to_time()
+
+
+        Button:
+            font_size: 15
+            color: (144/255, 66/255, 11/255, 1)
+            background_color: (1, 1, 1, 0)
+            size_hint: 0.1, 0.05
+            pos_hint: {"x": 0.85, "top": 0.95}
+            text: "Log Out"
+            on_press: self.color = (77/255, 33/255, 2/255, 1)
+            on_release:
+                self.color = (144/255, 66/255, 11/255, 1)
+                app.root.current = "main-page"
+                root.manager.transition.direction = "down"
+
+        Label:
+            font_size: 32
+            color: (144/255, 66/255, 11/255, 1)
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint: {"center_x": 0.5, "top": 0.95}
+            text: "HOTEL"
+
+
+        Button:
+            font_size: 18
+            color: (1, 1, 1, 1)
+            background_color: (186/255, 135/255, 81/255, 1)
+            background_normal: ''
+            size_hint: 0.25, 0.07
+            pos_hint: {"center_x": 0.5, "top": 0.6}
+            text: "Cancel a Reservation"
+            on_release:
+                self.background_color = (186/255, 135/255, 81/255, 1)
+                app.root.current = "emp_second"
+                root.manager.transition.direction = "left"
+
+        Button:
+            id: btn4
+            font_size: 18
+            color: (1, 1, 1, 1)
+            background_color: (186/255, 135/255, 81/255, 1)
+            background_normal: ''
+            size_hint: 0.25, 0.07
+            pos_hint: {"center_x": 0.5, "top": 0.5}
+            text: "Finish a Reservation"
+            on_release:
+                self.background_color = (186/255, 135/255, 81/255, 1)
+                app.root.current = "emp_fifth"
+                root.manager.transition.direction = "left"
+
+        Button:
+            font_size: 18
+            color: (1, 1, 1, 1)
+            background_color: (186/255, 135/255, 81/255, 1)
+            background_normal: ''
+            size_hint: 0.25, 0.07
+            pos_hint: {"center_x": 0.5, "top": 0.4}
+            text: "Booking"
+            on_release:
+                self.background_color = (186/255, 135/255, 81/255, 1)
+                root.set_payment_type()
+                app.root.current = "booking-emp"
+                root.manager.transition.direction = "left"
+
+        Button:
+            font_size: 18
+            color: (1, 1, 1, 1)
+            background_color: (186/255, 135/255, 81/255, 1)
+            background_normal: ''
+            size_hint: 0.25, 0.07
+            pos_hint: {"center_x": 0.5, "top": 0.3}
+            text: "Room Information"
+            on_release:
+                self.background_color = (186/255, 135/255, 81/255, 1)
+                app.root.current = "emp_third"
+                root.manager.transition.direction = "left"
+        Button:
+            font_size: 18
+            color: (1, 1, 1, 1)
+            background_color: (186/255, 135/255, 81/255, 1)
+            background_normal: ''
+            size_hint: 0.25, 0.07
+            pos_hint: {"center_x": 0.5, "top": 0.2}
+            text: "List of Guests"
+            on_release:
+                self.background_color = (186/255, 135/255, 81/255, 1)
+                app.root.current = "emp_fourth"
+                root.manager.transition.direction = "left"
+
+<EmpSecondWindow>:
+    name: "emp_second"
+
+    rsrvid: canc_rsrv_id
+
+    BoxLayout:
+        orientation: "vertical"
+        spacing: 50
+
+        Label:
+            font_size: 25
+            color: (144/255, 66/255, 11/255, 1)
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint: {"center_x": 0.5}
+            text: "Cancel a Reservation"
+
+        BoxLayout:
+            orientation: "horizontal"
+            spacing: 20
+            padding: 40
+
+            Label:
+                font_size: 20
+                color: (144/255, 66/255, 11/255, 0.9)
+                size_hint: None, None
+                size: self.texture_size
+                pos_hint: {"top": 0.7}
+                text: "Enter ID of reservation:"
+
+            TextInput:
+                id: canc_rsrv_id
+                size_hint: None, None
+                size: 200, 50
+                pos_hint: {"top": 0.74}
+                multiline: False
+
+        FloatLayout:
+            Button:
+                font_size: 18
+                color: (1, 1, 1, 1)
+                background_color: (186/255, 135/255, 81/255, 1)
+                background_normal: ''
+                size_hint: 0.2, 0.17
+                pos_hint: {"x": 0.518, "top": 0.3}
+                text: "Save"
+                # on_press: self.background_color = (58/255, 58/255, 58/255, 1)
+                on_release:
+                    self.background_color = (186/255, 135/255, 81/255, 1)
+                    root.check()
+                    root.success_stat()
+                    canc_rsrv_id.text = ''
+
+            Button:
+                font_size: 18
+                color: (1, 1, 1, 1)
+                background_color: (186/255, 135/255, 81/255, 1)
+                background_normal: ''
+                size_hint: 0.2, 0.17
+                pos_hint: {"x": 0.75, "top": 0.3}
+                text: "Back"
+                # on_press: self.background_color = (58/255, 58/255, 58/255, 1)
+                on_release:
+                    self.background_color = (186/255, 135/255, 81/255, 1)
+                    canc_rsrv_id.text = ''
+                    app.root.current = "emp_first"
+                    root.manager.transition.direction = "right"
+
+<EmpThirdWindow>:
+    name: "emp_third"
+
+    FloatLayout:
+        size: root.width, root.height
+
+        Label:
+            font_size: 25
+            color: (144/255, 66/255, 11/255, 1)
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint: {"center_x": 0.5, "top": 0.95}
+            text: "Room Price Update"
+
+        Button:
+            color: (1, 1, 1, 1)
+            background_color: (186/255, 135/255, 81/255, 1)
+            background_normal: ''
+            pos_hint:{"center_x": 0.5, "top": 0.7}
+            size_hint: 0.35, 0.05
+            text: "Show Room Information"
+            on_release:
+                root.get_users()
+
+        BoxLayout:
+            orientation: "vertical"
+            size_hint: None, None
+            size: 500, 250
+            pos_hint: {"center_x": 0.5, "top": 0.6}
+
+            GridLayout:
+                size_hint: 1, None
+                size_hint_y: None
+                height: 50
+                cols: 3
+
+                Label:
+                    bold: True
+                    color: (186/255, 135/255, 81/255, 1)
+                    text: "Class name"
+                Label:
+                    bold: True
+                    color: (186/255, 135/255, 81/255, 1)
+                    text: "Class type"
+                Label:
+                    bold: True
+                    color: (186/255, 135/255, 81/255, 1)
+                    text: "Price"
+
+            BoxLayout:
+                RecycleView:
+                    viewclass: 'SelectableButton1'
+                    data: [{'text': str(x)} for x in root.data_items]
+                    SelectableRecycleGridLayout:
+                        cols: 3
+                        default_size: None, dp(30)
+                        default_size_hint: 1, None
+                        size_hint_y: None
+                        height: self.minimum_height
+                        multiselect: True
+                        touch_multiselect: True
+
+        Button:
+            font_size: 18
+            color: (1, 1, 1, 1)
+            background_color: (186/255, 135/255, 81/255, 1)
+            background_normal: ''
+            size_hint: 0.2, 0.07
+            pos_hint: {"x": 0.75, "top": 0.12}
+            text: "Back"
+            # on_press: self.background_color = (58/255, 58/255, 58/255, 1)
+            on_release:
+                self.background_color = (186/255, 135/255, 81/255, 1)
+                app.root.current = "emp_first"
+                root.manager.transition.direction = "right"
+
+<RoomInfoUpd>:
+    title: "Price Change"
+    size_hint: None, None
+    size: 400, 270
+    title_align: "center"
+    auto_dismiss: False
+
+    GridLayout:
+        cols: 1
+        padding: 10
+        spacing: 10
+
+        BoxLayout:
+            orientation: "horizontal"
+            spacing: 0.1
+
+            Label:
+                color: (1, 1, 1, 1)
+                size_hint: 0.3, 0.35
+                pos_hint: {"y": 0.35}
+                text: "New Price:"
+            TextInput:
+                id: txtinput
+                size_hint: 0.3, 0.35
+                pos_hint: {"y": 0.35}
+                text: root.col_data[2]
+
+        BoxLayout:
+            orientation: "horizontal"
+            spacing: 5
+
+            Button:
+                text: "Save"
+                size_hint: 0.3, 0.35
+                pos_hint: {"y": 0.1}
+                on_release:
+                    root.obj.update_changes(root.col_data[0], root.col_data[1], txtinput.text)
+            Button:
+                text: "Back"
+                size_hint: 0.3, 0.35
+                pos_hint: {"y": 0.1}
+                on_release: root.dismiss()
+
+<SelectableButton1>:
+    canvas.before:
+        Color:
+            rgba: (186/255, 135/255, 81/255, 1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    background_normal: ''
+    background_color: (186/255, 135/255, 81/255, 1)
+
+<EmpFourthWindow>:
+    name: "emp_fourth"
+
+    BoxLayout:
+        orientation: "vertical"
+        size_hint: None, None
+        size: root.width-100, 600
+        pos_hint: {"center_x": 0.5, "top": 0.85}
+        Label:
+            font_size: 25
+            color: (144/255, 66/255, 11/255, 1)
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint: {"center_x": 0.5}
+            text: "List of Guests"
+
+        GridLayout:
+            size_hint: 1, None
+            size_hint_y: None
+            cols: 6
+            Label:
+                color: (186/255, 135/255, 81/255, 1)
+                text: "Guest ID"
+            Label:
+                color: (186/255, 135/255, 81/255, 1)
+                text: "Reservation Date"
+            Label:
+                color: (186/255, 135/255, 81/255, 1)
+                text: "Check in"
+            Label:
+                color: (186/255, 135/255, 81/255, 1)
+                text: "Check out"
+            Label:
+                color: (186/255, 135/255, 81/255, 1)
+                text: "Status"
+            Label:
+                color: (186/255, 135/255, 81/255, 1)
+                text: "Discount"
+
+        BoxLayout:
+            RecycleView:
+                viewclass: 'SelectableButton2'
+                data: [{'text': str(x)} for x in root.data_items]
+                SelectableRecycleGridLayout:
+                    cols: 6
+                    default_size: None, dp(26)
+                    default_size_hint: 1, None
+                    size_hint_y: None
+                    height: self.minimum_height
+        Button:
+            font_size: 18
+            color: (1, 1, 1, 1)
+            background_color: (186/255, 135/255, 81/255, 1)
+            background_normal: ''
+            size_hint: 0.2, 0.15
+            pos_hint: {"x": 0.75, "top": 0.35}
+            text: "Back"
+            on_release:
+                self.background_color = (186/255, 135/255, 81/255, 1)
+                app.root.current = "emp_first"
+                root.manager.transition.direction = "right"
+
+<SelectableButton2>:
+    # Draw a background to indicate selection
+    canvas.before:
+        Color:
+            rgba: (186/255, 135/255, 81/255, 1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    background_normal: ''
+    background_color: (186/255, 135/255, 81/255, 1)
+
+<EmpFifthWindow>:
+    name: "emp_fifth"
+
+    rsrvid: rsrv_id
+
+    BoxLayout:
+        orientation: "vertical"
+        spacing: 50
+
+        Label:
+            font_size: 25
+            color: (144/255, 66/255, 11/255, 1)
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint: {"center_x": 0.5}
+            text: "Finish a Reservation"
+
+        BoxLayout:
+            orientation: "horizontal"
+            spacing: 20
+            padding: 40
+
+            Label:
+                font_size: 20
+                color: (144/255, 66/255, 11/255, 0.9)
+                size_hint: None, None
+                size: self.texture_size
+                pos_hint: {"top": 0.7}
+                text: "Enter ID of reservation:"
+
+            TextInput:
+                id: rsrv_id
+                size_hint: None, None
+                size: 200, 50
+                pos_hint: {"top": 0.74}
+                multiline: False
+
+        FloatLayout:
+            Button:
+                font_size: 18
+                color: (1, 1, 1, 1)
+                background_color: (186/255, 135/255, 81/255, 1)
+                background_normal: ''
+                size_hint: 0.2, 0.17
+                pos_hint: {"x": 0.518, "top": 0.3}
+                text: "Save"
+                # on_press: self.background_color = (58/255, 58/255, 58/255, 1)
+                on_release:
+                    self.background_color = (186/255, 135/255, 81/255, 1)
+                    root.check()
+                    root.success_stat()
+                    rsrv_id.text = ''
+
+            Button:
+                font_size: 18
+                color: (1, 1, 1, 1)
+                background_color: (186/255, 135/255, 81/255, 1)
+                background_normal: ''
+                size_hint: 0.2, 0.17
+                pos_hint: {"x": 0.75, "top": 0.3}
+                text: "Back"
+                # on_press: self.background_color = (58/255, 58/255, 58/255, 1)
+                on_release:
+                    self.background_color = (186/255, 135/255, 81/255, 1)
+                    rsrv_id.text = ''
+                    app.root.current = "emp_first"
+                    root.manager.transition.direction = "right"
+
+
+<EmpSixthWindow>:
+    name: "emp_sixth"
+
+    arrv_t: arrv_time
+    leav_t: leav_time
+
+    BoxLayout:
+        orientation: "vertical"
+        spacing: 50
+        padding: 30
+
+        Label:
+            font_size: 25
+            color: (144/255, 66/255, 11/255, 1)
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint: {"center_x": 0.5}
+            text: "Work time of previous day"
+
+        GridLayout:
+            cols: 2
+            row_force_default: True
+            row_default_height: 70
+            spacing: 25
+            padding: 50
+
+            Label:
+
+                font_size: 24
+                color: (144/255, 66/255, 11/255, 0.9)
+                size_hint: None, None
+                size: self.texture_size
+                text: "Enter the arrival time:"
+
+            TextInput:
+                id: arrv_time
+                text: "HH:MM"
+                size_hint: None, None
+                size: 180, 50
+                multiline: False
+
+            Label:
+                font_size: 24
+                color: (144/255, 66/255, 11/255, 0.9)
+                size_hint: None, None
+                size: self.texture_size
+                text: "Enter the leaving time:"
+
+            TextInput:
+                id: leav_time
+                text: "HH:MM"
+                size_hint: None, None
+                size: 180, 50
+                multiline: False
+
+        FloatLayout:
+            Label:
+                id: curr_salary
+                font_size: 19
+                color: (0, 0, 0, 1)
+                size_hint: None, None
+                size: self.texture_size
+                pos_hint: {"x": 50/740, "top": 0.7}
+                text: "Salary: "
+            Label:
+                id: curr_bonus
+                font_size: 19
+                color: (0, 0, 0, 1)
+                size_hint: None, None
+                size: self.texture_size
+                pos_hint: {"x": 50/740, "top": 0.5}
+                text: "Bonus: "
+
+        FloatLayout:
+            Button:
+                font_size: 18
+                color: (1, 1, 1, 1)
+                background_color: (186/255, 135/255, 81/255, 1)
+                background_normal: ''
+                size_hint: 0.2, 0.33
+                pos_hint: {"x": 0.8, "top": 0.3}
+                text: "Back"
+                # on_press: self.background_color = (58/255, 58/255, 58/255, 1)
+                on_release:
+                    self.background_color = (186/255, 135/255, 81/255, 1)
+                    arrv_time.text = ''
+                    leav_time.text = ''
+                    app.root.current = "emp_first"
+                    root.manager.transition.direction = "up"
+
+            Button:
+                font_size: 18
+                color: (1, 1, 1, 1)
+                background_color: (186/255, 135/255, 81/255, 1)
+                background_normal: ''
+                size_hint: 0.2, 0.33
+                pos_hint: {"x": 0.575, "top": 0.3}
+                text: "Save"
+                # on_press: self.background_color = (58/255, 58/255, 58/255, 1)
+                on_release:
+                    self.background_color = (186/255, 135/255, 81/255, 1)
+                    root.check()
+                    root.status()
+                    arrv_time.text = ''
+                    leav_time.text = ''
+                    root.emp_money()
+
+<BookingWindowEmp>:
+    name: "booking-emp"
+    check_in: check_in
+    check_out: check_out
+    ScrollView:
+        FloatLayout:
+            size: root.width, root.height
+            size_hint_y: None
+            canvas:
+                Color:
+                    rgba: (0, 0, 0, 1)
+            Button:
+                font_size: 15
+                color: (144/255, 66/255, 11/255, 1)
+                background_color: (1, 1, 1, 0)
+                size_hint: 0.1, 0.05
+                pos_hint: {"x": 0.05, "top": 0.98}
+                text: "Booking"
+                on_press: self.color = (77/255, 33/255, 2/255, 1)
+                on_release:
+                    self.color = (144/255, 66/255, 11/255, 1)
+                    app.root.current = "booking"
+                    root.manager.transition.direction = 'left'
+
+            Label:
+                font_size: 32
+                color: (144/255, 66/255, 11/255, 1)
+                size_hint: None, None
+                size: self.texture_size
+                pos_hint: {"center_x": 0.5, "top": 0.97}
+                text: "HOTEL"
+
+            FloatLayout:
+                pos_hint: {"center_x": 0.5, "top": 0.93}
+                Label:
+                    text:"Check in: "
+                    color: (186/255, 135/255, 81/255, 1)
+                    font_size: 20
+                    bold: True
+                    pos_hint: {"x":0.2, "top":0.9}
+                    size_hint: 0.35, 0.15
+                TextInput:
+                    id: check_in
+                    multiline: False
+                    pos_hint: {"x":0.46, "top":0.85}
+                    size_hint: 0.2, 0.06
+                Label:
+                    text:"Check out: "
+                    color: (186/255, 135/255, 81/255, 1)
+                    font_size: 20
+                    bold: True
+                    pos_hint: {"x":0.2, "top":0.8}
+                    size_hint: 0.35, 0.15
+                TextInput:
+                    id: check_out
+                    multiline: False
+                    pos_hint: {"x":0.46, "top":0.75}
+                    size_hint: 0.2, 0.06
+                Button:
+                    color: (1, 1, 1, 1)
+                    background_color: (186/255, 135/255, 81/255, 1)
+                    background_normal: ''
+                    pos_hint:{"center_x":0.5, "top":0.6}
+                    size_hint: 0.35, 0.05
+                    text:'Search'
+                    on_release:
+                        root.booking()
+
+            BoxLayout:
+                orientation: "vertical"
+                size_hint: None, None
+                size: 500, 250
+                pos_hint: {"center_x": 0.5, "top": 0.45}
+                GridLayout:
+                    size_hint: 1, None
+                    size_hint_y: None
+                    # height: 10
+                    cols: 4
+                    Label:
+                        color: (186/255, 135/255, 81/255, 1)
+                        text: "Room number"
+                    Label:
+                        color: (186/255, 135/255, 81/255, 1)
+                        text: "Class name"
+                    Label:
+                        color: (186/255, 135/255, 81/255, 1)
+                        text: "Class type"
+                    Label:
+                        color: (186/255, 135/255, 81/255, 1)
+                        text: "Price"
+                BoxLayout:
+                    RecycleView:
+                        viewclass: 'SelectableButton3'
+                        data: [{'text': str(x)} for x in root.data_items]
+                        SelectableRecycleGridLayout:
+                            cols: 4
+                            default_size: None, dp(26)
+                            default_size_hint: 1, None
+                            size_hint_y: None
+                            height: self.minimum_height
+                            multiselect: True
+                            touch_multiselect: True
+
+            Button:
+                text: "Back"
+                color: 1, 1, 1, 1
+                background_normal: ''
+                background_color: (186/255, 135/255, 81/255, 1)
+                size_hint: None, None
+                size: 100, 30
+                pos_hint: {"x": 0.8, "top": 0.1}
+                on_release:
+                    app.root.current = "emp_first"
+                    root.manager.transition.direction = 'right'
+
+<BookingWindowGuest>:
+    name: "booking-guest"
+    check_in: check_in
+    check_out: check_out
+    ScrollView:
+        FloatLayout:
+            size: root.width, root.height
+            size_hint_y: None
+            canvas:
+                Color:
+                    rgba: (0, 0, 0, 1)
+            Button:
+                font_size: 15
+                color: (144/255, 66/255, 11/255, 1)
+                background_color: (1, 1, 1, 0)
+                size_hint: 0.1, 0.05
+                pos_hint: {"x": 0.05, "top": 0.98}
+                text: "Booking"
+                on_press: self.color = (77/255, 33/255, 2/255, 1)
+                on_release:
+                    self.color = (144/255, 66/255, 11/255, 1)
+                    app.root.current = "booking-guest"
+                    root.manager.transition.direction = 'left'
+
+            Label:
+                font_size: 32
+                color: (144/255, 66/255, 11/255, 1)
+                size_hint: None, None
+                size: self.texture_size
+                pos_hint: {"center_x": 0.5, "top": 0.97}
+                text: "HOTEL"
+
+            FloatLayout:
+                pos_hint: {"center_x": 0.5, "top": 0.93}
+                Label:
+                    text:"Check in: "
+                    color: (186/255, 135/255, 81/255, 1)
+                    font_size: 20
+                    bold: True
+                    pos_hint: {"x":0.2, "top":0.9}
+                    size_hint: 0.35, 0.15
+                TextInput:
+                    id: check_in
+                    multiline: False
+                    pos_hint: {"x":0.46, "top":0.85}
+                    size_hint: 0.2, 0.06
+                Label:
+                    text:"Check out: "
+                    color: (186/255, 135/255, 81/255, 1)
+                    font_size: 20
+                    bold: True
+                    pos_hint: {"x":0.2, "top":0.8}
+                    size_hint: 0.35, 0.15
+                TextInput:
+                    id: check_out
+                    multiline: False
+                    pos_hint: {"x":0.46, "top":0.75}
+                    size_hint: 0.2, 0.06
+                Button:
+                    color: (1, 1, 1, 1)
+                    background_color: (186/255, 135/255, 81/255, 1)
+                    background_normal: ''
+                    pos_hint:{"center_x":0.5, "top":0.6}
+                    size_hint: 0.35, 0.05
+                    text:'Search'
+                    on_release:
+                        root.booking()
+
+            BoxLayout:
+                orientation: "vertical"
+                size_hint: None, None
+                size: 500, 250
+                pos_hint: {"center_x": 0.5, "top": 0.45}
+                GridLayout:
+                    size_hint: 1, None
+                    size_hint_y: None
+                    # height: 10
+                    cols: 4
+                    Label:
+                        color: (186/255, 135/255, 81/255, 1)
+                        text: "Room number"
+                    Label:
+                        color: (186/255, 135/255, 81/255, 1)
+                        text: "Class name"
+                    Label:
+                        color: (186/255, 135/255, 81/255, 1)
+                        text: "Class type"
+                    Label:
+                        color: (186/255, 135/255, 81/255, 1)
+                        text: "Price"
+                BoxLayout:
+                    RecycleView:
+                        viewclass: 'SelectableButton3'
+                        data: [{'text': str(x)} for x in root.data_items]
+                        SelectableRecycleGridLayout:
+                            cols: 4
+                            default_size: None, dp(26)
+                            default_size_hint: 1, None
+                            size_hint_y: None
+                            height: self.minimum_height
+                            multiselect: True
+                            touch_multiselect: True
+
+            Button:
+                text: "Back"
+                color: 1, 1, 1, 1
+                background_normal: ''
+                background_color: (186/255, 135/255, 81/255, 1)
+                size_hint: None, None
+                size: 100, 30
+                pos_hint: {"x": 0.8, "top": 0.1}
+                on_release:
+                    app.root.current = "main-page"
+                    root.manager.transition.direction = 'right'
+
+<SelectableButton3>:
+    # Draw a background to indicate selection
+    canvas.before:
+        Color:
+            rgba: (186/255, 135/255, 81/255, 1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    background_normal: ''
+    background_color: (186/255, 135/255, 81/255, 1)
+
+<BookingData>:
+    title: "Registration"
+    size_hint: None, None
+    size: 400, 500
+    title_align: "center"
+    auto_dismiss: False
+
+    FloatLayout:
+        size: root.width, root.height
+        size_hint_y: None
+        canvas:
+            Color:
+                rgba: (0, 0, 0, 1)
+
+        FloatLayout:
+            pos_hint: {"center_x": 0.5, "top": 0.93}
+            Label:
+                text:"Full name:"
+                color: (186/255, 135/255, 81/255, 1)
+                pos_hint: {"x":0.1, "top":0.9}
+                size_hint: 0.35, 0.15
+            TextInput:
+                id: full_name
+                multiline: False
+                pos_hint: {"x":0.46, "top":0.85}
+                size_hint: 0.4, 0.08
+            Label:
+                text:"Phone number:"
+                color: (186/255, 135/255, 81/255, 1)
+                pos_hint: {"x":0.1, "top":0.8}
+                size_hint: 0.35, 0.15
+            TextInput:
+                id: phone_num
+                multiline: False
+                pos_hint: {"x":0.46, "top":0.75}
+                size_hint: 0.4, 0.08
+            Label:
+                text:"Credit card:"
+                color: (186/255, 135/255, 81/255, 1)
+                pos_hint: {"x":0.1, "top":0.7}
+                size_hint: 0.35, 0.15
+            TextInput:
+                id: credit_num
+                text: "CARD_NAME, CARD_NUMBER"
+                multiline: False
+                pos_hint: {"x":0.46, "top":0.65}
+                size_hint: 0.4, 0.08
+            Label:
+                text:"Room number:"
+                color: (186/255, 135/255, 81/255, 1)
+                pos_hint: {"x":0.1, "top":0.6}
+                size_hint: 0.35, 0.15
+            TextInput:
+                # id: room_no
+                text: root.col_data[0]
+                multiline: False
+                pos_hint: {"x":0.46, "top":0.55}
+                size_hint: 0.4, 0.08
+            Label:
+                text:"Check in:"
+                color: (186/255, 135/255, 81/255, 1)
+                pos_hint: {"x":0.1, "top":0.5}
+                size_hint: 0.35, 0.15
+            TextInput:
+                id: cl_checkin
+                text: 'YYYY-MM_DD'
+                multiline: False
+                pos_hint: {"x":0.46, "top":0.45}
+                size_hint: 0.4, 0.08
+            Label:
+                text:"Check out:"
+                color: (186/255, 135/255, 81/255, 1)
+                pos_hint: {"x":0.1, "top":0.4}
+                size_hint: 0.35, 0.15
+            TextInput:
+                id: cl_checkout
+                text: 'YYYY-MM_DD'
+                multiline: False
+                pos_hint: {"x":0.46, "top":0.35}
+                size_hint: 0.4, 0.08
+            Button:
+                color: (1, 1, 1, 1)
+                background_color: (186/255, 135/255, 81/255, 1)
+                background_normal: ''
+                pos_hint:{"x":0.125, "top":0.25}
+                size_hint: 0.35, 0.05
+                text:'Reserve'
+                on_release: root.obj.update_changes(full_name.text, phone_num.text, credit_num.text, cl_checkin.text, cl_checkout.text, root.col_data[0])
+            Button:
+                color: (1, 1, 1, 1)
+                background_color: (186/255, 135/255, 81/255, 1)
+                background_normal: ''
+                pos_hint:{"x":0.525, "top":0.25}
+                size_hint: 0.35, 0.05
+                text:'Back'
+                on_release: root.dismiss()
+
+<RoomInfoStRoom>:
+    name: "standard-room"
+
+    FloatLayout:
+        size: root.width, root.height
+        size_hint_y: None
+        canvas:
+            Color:
+                rgba: (0, 0, 0, 1)
+
+        Button:
+            font_size: 15
+            color: (144/255, 66/255, 11/255, 1)
+            background_color: (1, 1, 1, 0)
+            size_hint: 0.1, 0.05
+            pos_hint: {"x": 0.05, "top": 0.95}
+            text: "Booking"
+            on_press: self.color = (77/255, 33/255, 2/255, 1)
+            on_release:
+                self.color = (144/255, 66/255, 11/255, 1)
+                app.root.current = "booking-guest"
+                root.manager.transition.direction = 'left'
+
+        Button:
+            font_size: 15
+            color: (144/255, 66/255, 11/255, 1)
+            background_color: (1, 1, 1, 0)
+            size_hint: 0.1, 0.05
+            pos_hint: {"x": 0.85, "top": .95}
+            text: "Log In"
+            on_press: self.color = (77/255, 33/255, 2/255, 1)
+            on_release:
+                self.color = (144/255, 66/255, 11/255, 1)
+                app.root.current = "login"
+                root.manager.transition.direction = 'left'
+
+        Label:
+            font_size: 32
+            color: (144/255, 66/255, 11/255, 1)
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint: {"center_x": 0.5, "top": 0.95}
+            text: "HOTEL"
+
+        GridLayout:
+            cols:2
+            pos_hint: {"x": 0, "top": 0.8}
+            size_hint: (None, None)
+            size: root.width, 400
+            FloatLayout:
+                Label:
+                    font_size: 28
+                    bold: True
+                    color: (144/255, 66/255, 11/255, 1)
+                    size_hint: None, None
+                    size: self.texture_size
+                    pos_hint: {"x": 0.1, "top": 0.98}
+                    text: "Standard Room"
+
+                Label:
+                    font_size: 22
+                    color: (144/255, 66/255, 11/255, 1)
+                    size_hint: None, None
+                    size: self.texture_size
+                    pos_hint: {"x": 0.1, "top": 0.80}
+                    text: root.get_room_types()
+    
+                Label:
+                    font_size: 22
+                    bold: True
+                    color: (144/255, 66/255, 11/255, 1)
+                    size_hint: None, None
+                    size: self.texture_size
+                    pos_hint: {"x": 0.3, "top": 0.80}
+                    text: root.get_room_price()
+
+                Label:
+                    canvas.before:
+                        Color:
+                            rgba: (144/255, 66/255, 11/255, 1)
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    size_hint: None, None
+                    size: 275, 0
+                    pos_hint: {"x": 0.1, "top": 0.7}
+                    height: 0.6
+                
+                Label:
+                    # id:st_room_id
+                    font_size: 18
+                    color: (144/255, 66/255, 11/255, 1)
+                    size_hint: None, None
+                    size: self.texture_size
+                    pos_hint: {"x": 0.1, "top": 0.45}
+                    text: root.room_dscrt()
+                Button:
+                    text:"Go Back"
+                    color: 1, 1, 1, 1
+                    background_normal: ''
+                    background_color: (186/255, 135/255, 81/255, 1)
+                    size_hint: None, None
+                    size: 100, 30
+                    pos_hint: {"x": 0.1, "top": 0.2}
+                    on_release:
+                        app.root.current = "main-page"
+                        root.manager.transition.direction = 'right'
+
+            Image:
+                source: 'standardroom.png'
+                allow_stretch: True
+
+        Label:
+            canvas.before:
+                Color:
+                    rgba: (144/255, 66/255, 11/255, 1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint_y: None
+            pos_hint: {"x": 0, "top": 0.14}
+            height: 0.5
+
+        Label:
+            font_size: 16
+            color: (144/255, 66/255, 11/255, 1)
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint: {"x": 0.05, "top": 0.13}
+            text: "Contacts:\n\nTole bi 59, Almaty, Kazakhstan\nreservation@hotel.kz"
+<RoomInfoJSRoom>:
+    name: "junior-suite"
+
+    FloatLayout:
+        size: root.width, root.height
+        size_hint_y: None
+        canvas:
+            Color:
+                rgba: (0, 0, 0, 1)
+
+        Button:
+            font_size: 15
+            color: (144/255, 66/255, 11/255, 1)
+            background_color: (1, 1, 1, 0)
+            size_hint: 0.1, 0.05
+            pos_hint: {"x": 0.05, "top": 0.95}
+            text: "Booking"
+            on_press: self.color = (77/255, 33/255, 2/255, 1)
+            on_release:
+                self.color = (144/255, 66/255, 11/255, 1)
+                app.root.current = "booking-guest"
+                root.manager.transition.direction = 'left'
+
+        Button:
+            font_size: 15
+            color: (144/255, 66/255, 11/255, 1)
+            background_color: (1, 1, 1, 0)
+            size_hint: 0.1, 0.05
+            pos_hint: {"x": 0.85, "top": .95}
+            text: "Log In"
+            on_press: self.color = (77/255, 33/255, 2/255, 1)
+            on_release:
+                self.color = (144/255, 66/255, 11/255, 1)
+                app.root.current = "login"
+                root.manager.transition.direction = 'left'
+
+        Label:
+            font_size: 32
+            color: (144/255, 66/255, 11/255, 1)
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint: {"center_x": 0.5, "top": 0.95}
+            text: "HOTEL"
+
+        GridLayout:
+            cols:2
+            pos_hint: {"x": 0, "top": 0.8}
+            size_hint: (None, None)
+            size: root.width, 400
+            FloatLayout:
+                Label:
+                    font_size: 28
+                    bold: True
+                    color: (144/255, 66/255, 11/255, 1)
+                    size_hint: None, None
+                    size: self.texture_size
+                    pos_hint: {"x": 0.1, "top": 0.98}
+                    text: "Junior Suite"
+
+                Label:
+                    font_size: 22
+                    color: (144/255, 66/255, 11/255, 1)
+                    size_hint: None, None
+                    size: self.texture_size
+                    pos_hint: {"x": 0.1, "top": 0.80}
+                    text: root.get_room_types()
+    
+                Label:
+                    font_size: 22
+                    bold: True
+                    color: (144/255, 66/255, 11/255, 1)
+                    size_hint: None, None
+                    size: self.texture_size
+                    pos_hint: {"x": 0.3, "top": 0.80}
+                    text: root.get_room_price()
+
+                Label:
+                    canvas.before:
+                        Color:
+                            rgba: (144/255, 66/255, 11/255, 1)
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    size_hint: None, None
+                    size: 275, 0
+                    pos_hint: {"x": 0.1, "top": 0.7}
+                    height: 0.6
+                Label:
+                    canvas.before:
+                        Color:
+                            rgba: (144/255, 66/255, 11/255, 1)
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    size_hint: None, None
+                    size: 275, 0
+                    pos_hint: {"x": 0.1, "top": 0.57}
+                    height: 0.6
+                
+                Label:
+                    font_size: 18
+                    color: (144/255, 66/255, 11/255, 1)
+                    size_hint: None, None
+                    size: self.texture_size
+                    pos_hint: {"x": 0.1, "top": 0.4}
+                    text: root.room_dscrt()
+                Button:
+                    text:"Go Back"
+                    color: 1, 1, 1, 1
+                    background_normal: ''
+                    background_color: (186/255, 135/255, 81/255, 1)
+                    size_hint: None, None
+                    size: 100, 30
+                    pos_hint: {"x": 0.1, "top": 0.2}
+                    on_release:
+                        app.root.current = "main-page"
+                        root.manager.transition.direction = 'right'
+
+            Image:
+                source: 'juniorsuite.png'
+                allow_stretch: True
+
+        Label:
+            canvas.before:
+                Color:
+                    rgba: (144/255, 66/255, 11/255, 1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint_y: None
+            pos_hint: {"x": 0, "top": 0.14}
+            height: 0.5
+
+        Label:
+            font_size: 16
+            color: (144/255, 66/255, 11/255, 1)
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint: {"x": 0.05, "top": 0.13}
+            text: "Contacts:\n\nTole bi 59, Almaty, Kazakhstan\nreservation@hotel.kz"
+
+<RoomInfoKSRoom>:
+    name: "king-suite"
+
+    FloatLayout:
+        size: root.width, root.height
+        size_hint_y: None
+        canvas:
+            Color:
+                rgba: (0, 0, 0, 1)
+
+        Button:
+            font_size: 15
+            color: (144/255, 66/255, 11/255, 1)
+            background_color: (1, 1, 1, 0)
+            size_hint: 0.1, 0.05
+            pos_hint: {"x": 0.05, "top": 0.95}
+            text: "Booking"
+            on_press: self.color = (77/255, 33/255, 2/255, 1)
+            on_release:
+                self.color = (144/255, 66/255, 11/255, 1)
+                app.root.current = "booking-guest"
+                root.manager.transition.direction = 'left'
+
+        Button:
+            font_size: 15
+            color: (144/255, 66/255, 11/255, 1)
+            background_color: (1, 1, 1, 0)
+            size_hint: 0.1, 0.05
+            pos_hint: {"x": 0.85, "top": .95}
+            text: "Log In"
+            on_press: self.color = (77/255, 33/255, 2/255, 1)
+            on_release:
+                self.color = (144/255, 66/255, 11/255, 1)
+                app.root.current = "login"
+                root.manager.transition.direction = 'left'
+
+        Label:
+            font_size: 32
+            color: (144/255, 66/255, 11/255, 1)
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint: {"center_x": 0.5, "top": 0.95}
+            text: "HOTEL"
+
+        GridLayout:
+            cols:2
+            pos_hint: {"x": 0, "top": 0.8}
+            size_hint: (None, None)
+            size: root.width, 400
+            FloatLayout:
+                Label:
+                    font_size: 28
+                    bold: True
+                    color: (144/255, 66/255, 11/255, 1)
+                    size_hint: None, None
+                    size: self.texture_size
+                    pos_hint: {"x": 0.1, "top": 0.98}
+                    text: "King Suite"
+
+                Label:
+                    font_size: 22
+                    color: (144/255, 66/255, 11/255, 1)
+                    size_hint: None, None
+                    size: self.texture_size
+                    pos_hint: {"x": 0.1, "top": 0.80}
+                    text: root.get_room_types()
+
+                Label:
+                    font_size: 22
+                    bold: True
+                    color: (144/255, 66/255, 11/255, 1)
+                    size_hint: None, None
+                    size: self.texture_size
+                    pos_hint: {"x": 0.3, "top": 0.80}
+                    text: root.get_room_price()
+
+                Label:
+                    canvas.before:
+                        Color:
+                            rgba: (144/255, 66/255, 11/255, 1)
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    size_hint: None, None
+                    size: 275, 0
+                    pos_hint: {"x": 0.1, "top": 0.7}
+                    height: 0.6
+                
+                Label:
+                    canvas.before:
+                        Color:
+                            rgba: (144/255, 66/255, 11/255, 1)
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    size_hint: None, None
+                    size: 275, 0
+                    pos_hint: {"x": 0.1, "top": 0.57}
+                    height: 0.6
+                
+                Label:
+                    font_size: 18
+                    color: (144/255, 66/255, 11/255, 1)
+                    size_hint: None, None
+                    size: self.texture_size
+                    pos_hint: {"x": 0.1, "top": 0.4}
+                    text: root.room_dscrt()
+                Button:
+                    text:"Go Back"
+                    color: 1, 1, 1, 1
+                    background_normal: ''
+                    background_color: (186/255, 135/255, 81/255, 1)
+                    size_hint: None, None
+                    size: 100, 30
+                    pos_hint: {"x": 0.1, "top": 0.2}
+                    on_release:
+                        app.root.current = "main-page"
+                        root.manager.transition.direction = 'right'
+
+            Image:
+                source: 'kingsuite.png'
+                allow_stretch: True
+
+        Label:
+            canvas.before:
+                Color:
+                    rgba: (144/255, 66/255, 11/255, 1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint_y: None
+            pos_hint: {"x": 0, "top": 0.14}
+            height: 0.5
+
+        Label:
+            font_size: 16
+            color: (144/255, 66/255, 11/255, 1)
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint: {"x": 0.05, "top": 0.13}
+            text: "Contacts:\n\nTole bi 59, Almaty, Kazakhstan\nreservation@hotel.kz"
+<RoomInfoQSRoom>:
+    name: "queen-suite"
+
+    FloatLayout:
+        size: root.width, root.height
+        size_hint_y: None
+        canvas:
+            Color:
+                rgba: (0, 0, 0, 1)
+
+        Button:
+            font_size: 15
+            color: (144/255, 66/255, 11/255, 1)
+            background_color: (1, 1, 1, 0)
+            size_hint: 0.1, 0.05
+            pos_hint: {"x": 0.05, "top": 0.95}
+            text: "Booking"
+            on_press: self.color = (77/255, 33/255, 2/255, 1)
+            on_release:
+                self.color = (144/255, 66/255, 11/255, 1)
+                app.root.current = "booking-guest"
+                root.manager.transition.direction = 'left'
+
+        Button:
+            font_size: 15
+            color: (144/255, 66/255, 11/255, 1)
+            background_color: (1, 1, 1, 0)
+            size_hint: 0.1, 0.05
+            pos_hint: {"x": 0.85, "top": .95}
+            text: "Log In"
+            on_press: self.color = (77/255, 33/255, 2/255, 1)
+            on_release:
+                self.color = (144/255, 66/255, 11/255, 1)
+                app.root.current = "login"
+                root.manager.transition.direction = 'left'
+
+        Label:
+            font_size: 32
+            color: (144/255, 66/255, 11/255, 1)
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint: {"center_x": 0.5, "top": 0.95}
+            text: "HOTEL"
+
+        GridLayout:
+            cols:2
+            pos_hint: {"x": 0, "top": 0.8}
+            size_hint: (None, None)
+            size: root.width, 400
+            FloatLayout:
+                Label:
+                    font_size: 28
+                    bold: True
+                    color: (144/255, 66/255, 11/255, 1)
+                    size_hint: None, None
+                    size: self.texture_size
+                    pos_hint: {"x": 0.1, "top": 0.98}
+                    text: "Queen Suite"
+
+                Label:
+                    font_size: 22
+                    color: (144/255, 66/255, 11/255, 1)
+                    size_hint: None, None
+                    size: self.texture_size
+                    pos_hint: {"x": 0.1, "top": 0.80}
+                    text: root.get_room_types()
+
+                Label:
+                    font_size: 22
+                    bold: True
+                    color: (144/255, 66/255, 11/255, 1)
+                    size_hint: None, None
+                    size: self.texture_size
+                    pos_hint: {"x": 0.3, "top": 0.80}
+                    text: root.get_room_price()
+
+                Label:
+                    canvas.before:
+                        Color:
+                            rgba: (144/255, 66/255, 11/255, 1)
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    size_hint: None, None
+                    size: 275, 0
+                    pos_hint: {"x": 0.1, "top": 0.7}
+                    height: 0.6
+                
+                Label:
+                    canvas.before:
+                        Color:
+                            rgba: (144/255, 66/255, 11/255, 1)
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    size_hint: None, None
+                    size: 275, 0
+                    pos_hint: {"x": 0.1, "top": 0.57}
+                    height: 0.6
+                
+                Label:
+                    font_size: 18
+                    color: (144/255, 66/255, 11/255, 1)
+                    size_hint: None, None
+                    size: self.texture_size
+                    pos_hint: {"x": 0.1, "top": 0.4}
+                    text: root.room_dscrt()
+
+                Button:
+                    text:"Go Back"
+                    color: 1, 1, 1, 1
+                    background_normal: ''
+                    background_color: (186/255, 135/255, 81/255, 1)
+                    size_hint: None, None
+                    size: 100, 30
+                    pos_hint: {"x": 0.1, "top": 0.2}
+                    on_release:
+                        app.root.current = "main-page"
+                        root.manager.transition.direction = 'right'
+
+            Image:
+                source: 'queensuite.png'
+                allow_stretch: True
+
+        Label:
+            canvas.before:
+                Color:
+                    rgba: (144/255, 66/255, 11/255, 1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint_y: None
+            pos_hint: {"x": 0, "top": 0.14}
+            height: 0.5
+
+        Label:
+            font_size: 16
+            color: (144/255, 66/255, 11/255, 1)
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint: {"x": 0.05, "top": 0.13}
+            text: "Contacts:\n\nTole bi 59, Almaty, Kazakhstan\nreservation@hotel.kz"
+
+<RoomInfoSSRoom>:
+    name: "superior-suite"
+
+    FloatLayout:
+        size: root.width, root.height
+        size_hint_y: None
+        canvas:
+            Color:
+                rgba: (0, 0, 0, 1)
+
+        Button:
+            font_size: 15
+            color: (144/255, 66/255, 11/255, 1)
+            background_color: (1, 1, 1, 0)
+            size_hint: 0.1, 0.05
+            pos_hint: {"x": 0.05, "top": 0.95}
+            text: "Booking"
+            on_press: self.color = (77/255, 33/255, 2/255, 1)
+            on_release:
+                self.color = (144/255, 66/255, 11/255, 1)
+                app.root.current = "booking-guest"
+                root.manager.transition.direction = 'left'
+
+        Button:
+            font_size: 15
+            color: (144/255, 66/255, 11/255, 1)
+            background_color: (1, 1, 1, 0)
+            size_hint: 0.1, 0.05
+            pos_hint: {"x": 0.85, "top": .95}
+            text: "Log In"
+            on_press: self.color = (77/255, 33/255, 2/255, 1)
+            on_release:
+                self.color = (144/255, 66/255, 11/255, 1)
+                app.root.current = "login"
+                root.manager.transition.direction = 'left'
+
+        Label:
+            font_size: 32
+            color: (144/255, 66/255, 11/255, 1)
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint: {"center_x": 0.5, "top": 0.95}
+            text: "HOTEL"
+
+        GridLayout:
+            cols:2
+            pos_hint: {"x": 0, "top": 0.8}
+            size_hint: (None, None)
+            size: root.width, 400
+            FloatLayout:
+                Label:
+                    font_size: 28
+                    bold: True
+                    color: (144/255, 66/255, 11/255, 1)
+                    size_hint: None, None
+                    size: self.texture_size
+                    pos_hint: {"x": 0.1, "top": 0.98}
+                    text: "Superior Suite"
+
+                Label:
+                    font_size: 22
+                    color: (144/255, 66/255, 11/255, 1)
+                    size_hint: None, None
+                    size: self.texture_size
+                    pos_hint: {"x": 0.1, "top": 0.80}
+                    text: root.get_room_types()
+
+                Label:
+                    font_size: 22
+                    bold: True
+                    color: (144/255, 66/255, 11/255, 1)
+                    size_hint: None, None
+                    size: self.texture_size
+                    pos_hint: {"x": 0.3, "top": 0.80}
+                    text: root.get_room_price()
+
+                Label:
+                    canvas.before:
+                        Color:
+                            rgba: (144/255, 66/255, 11/255, 1)
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    size_hint: None, None
+                    size: 275, 0
+                    pos_hint: {"x": 0.1, "top": 0.7}
+                    height: 0.6
+                
+                Label:
+                    font_size: 18
+                    color: (144/255, 66/255, 11/255, 1)
+                    size_hint: None, None
+                    size: self.texture_size
+                    pos_hint: {"x": 0.1, "top": 0.45}
+                    text: root.room_dscrt()
+                Button:
+                    text:"Go Back"
+                    color: 1, 1, 1, 1
+                    background_normal: ''
+                    background_color: (186/255, 135/255, 81/255, 1)
+                    size_hint: None, None
+                    size: 100, 30
+                    pos_hint: {"x": 0.1, "top": 0.2}
+                    on_release:
+                        app.root.current = "main-page"
+                        root.manager.transition.direction = 'right'
+
+            Image:
+                source: 'superiorsuite.png'
+                allow_stretch: True
+
+        Label:
+            canvas.before:
+                Color:
+                    rgba: (144/255, 66/255, 11/255, 1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint_y: None
+            pos_hint: {"x": 0, "top": 0.14}
+            height: 0.5
+
+        Label:
+            font_size: 16
+            color: (144/255, 66/255, 11/255, 1)
+            size_hint: None, None
+            size: self.texture_size
+            pos_hint: {"x": 0.05, "top": 0.13}
+            text: "Contacts:\n\nTole bi 59, Almaty, Kazakhstan\nreservation@hotel.kz"

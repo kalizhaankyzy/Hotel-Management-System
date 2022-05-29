@@ -1,0 +1,11 @@
+********************
+RESERVATION BILL
+********************
+
+CHECK IN: 2022-10-10   
+CHECK OUT: 2022-10-11   
+TOTAL PRICE: 51000.00   
+********************
+
+PAYMENT TYPE: online   
+DATE: 2022-05-24   
